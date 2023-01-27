@@ -1,0 +1,46 @@
+cloudmesh:
+  profile:
+    address:
+      firstname: Paul
+      lastname: Filliman
+      email: pfillima@iu.edu
+    github:
+      username: fa18-516-06
+    key:
+      public: ~/.ssh/id_rsa.pub
+  default:
+    group:                          cloudmesh
+    experiment:                     base
+    cloud:                          azure
+    cluster:                        clustera
+  cloud:
+    azure:
+      cm:
+        heading:                    Azure
+        host:                       azure.microsoft.com
+        label:                      Azure
+        kind:                       azure
+        version:                    TBD
+      default:
+        region:                     'eastcentralus'
+        image:                      'Canonical:UbuntuServer:16.04-LTS:latest'
+        size:                       'Standard_S0'
+        resource_group:             'SQLRG'
+        storage_account:            'cmdrive'
+        network:                    'cmnetwork'
+      credentials:
+        AZURE_TENANT_ID:            'xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+        AZURE_SUBSCRIPTION_ID:      '8b278fc5-e24f-464c-959d-8edf6391fae9'
+        AZURE_APPLICATION_ID:       'xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+        AZURE_SQLDATABASESERVER:    'pfillimansql.database.windows.net'
+        AZURE_DATABASENAME:         'AdvWorksLT'
+        AZURE_SQLSERVER_USERID:     'sqladmin@pfillimansql'
+        AZURE_SECRET_KEY:           'SqlDba123'
+        AZURE_SQL_DRIVER:           '{ODBC Driver 13 for SQL Server}'
+        AZURE_MANAGEMENT_CERT_PATH: 'C:/Demo/azure_cert.pem'
+  data:
+    mongodb:
+      credentials:
+       MONGODB_USERID:              'mongoadmin'
+       MONGODB_PASSWD:              'MongoAdmin123'
+      

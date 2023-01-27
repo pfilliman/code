@@ -1,0 +1,9 @@
+flask
+flask_restful
+connexion
+requests
+pyodbc
+mongoengine
+pymongo
+json_utils
+

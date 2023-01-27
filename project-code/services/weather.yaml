@@ -1,0 +1,109 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: "E516: Basic OpenWeatherMap API Example"
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+basePath: "/"
+paths:
+  /weather:
+    get:
+      parameters:
+        - name: dbtype
+          in: query
+          description: "Database (Azure SQL or MongoDB) to insert into"
+          required: false
+          type: "string"
+      operationId: weatherapi.get_weather
+      description: "Current Weather"
+      responses:
+        "200":
+          description: "Success"
+          schema: 
+            $ref: "#/definitions/WeatherResponse"
+        default:
+          description: "Error"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+definitions:
+  WeatherResponse:
+    properties: 
+      base: 
+        type: "string"
+      clouds: 
+        type: "object"
+        properties: 
+          all: 
+            type: "number"
+      cod: 
+        type: "number"
+      coord: 
+        type: "object"
+        properties: 
+          lat: 
+            type: "number"
+          lon: 
+            type: "number"
+      dt: 
+        type: "number"
+      id: 
+        type: "number"
+      main: 
+        type: "object"
+        properties: 
+          humidity: 
+            type: "number"
+          pressure: 
+            type: "number"
+          temp_max: 
+            type: "number"
+          temp_min: 
+            type: "number"
+          temp: 
+            type: "number"
+      name: 
+        type: "string"
+      sys: 
+        type: "object"
+        properties: 
+          country: 
+            type: "string"
+          id: 
+            type: "number"
+          message: 
+            type: "number"
+          sunrise: 
+            type: "number"
+          sunset: 
+            type: "number"
+          type: 
+            type: "number"
+      weather: 
+        type: "array"
+        items: 
+          type: "object"
+          properties: 
+            description: 
+              type: "string"
+            icon: 
+              type: "string"
+            id: 
+              type: "number"
+            main: 
+              type: "string"
+      wind: 
+        type: "object"
+        properties: 
+          deg: 
+            type: "number"
+          speed: 
+            type: "number"
+  ErrorResponse:
+    required:
+      - "message"
+    properties:
+      message:
+        type: "string"
+
